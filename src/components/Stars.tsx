@@ -11,7 +11,7 @@ const StyledStars = styled.div`
 `;
 
 const Stars = () => {
-  const smallStarsCount = 20;
+  const smallStarsCount = 80;
   let smallStars: StarSmallType[] = [];
 
   for (let index = 0; index < smallStarsCount; index++) {
