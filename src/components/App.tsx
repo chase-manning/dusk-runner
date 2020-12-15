@@ -16,7 +16,7 @@ const App = () => {
   return (
     <StyledApp>
       <Background topColor={"#145377"} bottomColor={"#6DCCC9"} />
-      <Suns highlight={"#EDF5ED"} shadow={"#A8EAE3"} count={7} />
+      <Suns highlight={"#EDF5ED"} shadow={"#EDF5ED00"} count={7} />
       <Floor color={"#16496E"} />
     </StyledApp>
   );
