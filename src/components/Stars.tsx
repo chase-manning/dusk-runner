@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import StarLarge, { StarLargeType } from "./StarLarge";
 import StarSmall, { StarSmallType } from "./StarSmall";
 
 const StyledStars = styled.div`
@@ -12,8 +13,9 @@ const StyledStars = styled.div`
 
 const Stars = () => {
   const smallStarsCount = 80;
-  let smallStars: StarSmallType[] = [];
+  const largeStarsCount = 4;
 
+  let smallStars: StarSmallType[] = [];
   for (let index = 0; index < smallStarsCount; index++) {
     smallStars.push({
       top: Math.random() * 100 + "%",
@@ -23,10 +25,22 @@ const Stars = () => {
     });
   }
 
+  let largeStars: StarLargeType[] = [];
+  for (let index = 0; index < largeStarsCount; index++) {
+    largeStars.push({
+      top: Math.random() * 100 + "%",
+      left: Math.random() * 100 + "%",
+      diameter: Math.random() * 5 + 2,
+    });
+  }
+
   return (
     <StyledStars>
       {smallStars.map((smallStar: StarSmallType) => (
         <StarSmall star={smallStar} />
+      ))}
+      {largeStars.map((largeStar: StarLargeType) => (
+        <StarLarge star={largeStar} />
       ))}
     </StyledStars>
   );
