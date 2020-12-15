@@ -18,8 +18,8 @@ type Props = {
 
 const Suns = (props: Props) => {
   const baseDiameter = window.innerHeight / 4;
-  const sizeMultiplier = 1.3;
-  const opacityMultiplier = 0.8;
+  const sizeMultiplier = 1.4;
+  const opacityMultiplier = 0.7;
 
   let suns: SunType[] = [];
 
