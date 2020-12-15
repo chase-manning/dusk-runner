@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Background from "./Background";
 import Floor from "./Floor";
+import Stars from "./Stars";
 import Suns from "./Suns";
 
 const StyledApp = styled.div`
@@ -17,6 +18,7 @@ const App = () => {
     <StyledApp>
       <Background topColor={"#145377"} bottomColor={"#6DCCC9"} />
       <Suns highlight={"#EDF5ED"} shadow={"#EDF5ED00"} count={7} />
+      <Stars />
       <Floor color={"#16496E"} />
     </StyledApp>
   );
