@@ -2,7 +2,6 @@ import React from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { selectMovement } from "../store/backgroundSlice";
-import Movement from "../styles/Movement";
 
 const StyledObstacle = styled.div`
   position: fixed;
