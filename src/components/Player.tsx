@@ -40,12 +40,13 @@ const Player = () => {
   velocityRef.current = velocity;
 
   const processJump = () => {
-    if (heightRef.current < 0) {
+    const newHeight = heightRef.current + velocityRef.current;
+    if (newHeight <= 0) {
       dispatch(setHeight(0));
       setVelocity(startVelocity);
       dispatch(run());
     } else {
-      dispatch(setHeight(heightRef.current + velocityRef.current));
+      dispatch(setHeight(newHeight));
       setVelocity(velocityRef.current - resistance);
       setTimeout(() => {
         processJump();
