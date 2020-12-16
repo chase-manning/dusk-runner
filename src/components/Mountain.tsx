@@ -1,9 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { selectMovement } from "../store/backgroundSlice";
-import { selectSpeed } from "../store/playerSlice";
-import Movement from "../styles/Movement";
 
 type StyledMountainProps = {
   scale: number;
