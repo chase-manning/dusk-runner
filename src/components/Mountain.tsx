@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { selectMovement } from "../store/backgroundSlice";
 import { selectSpeed } from "../store/playerSlice";
+import Movement from "../styles/Movement";
 
 type StyledMountainProps = {
   scale: number;
@@ -17,14 +18,6 @@ const StyledMountain = styled.div`
   left: ${(props: StyledMountainProps) => props.left};
 `;
 
-type MovementProps = {
-  movement: number;
-};
-
-const Movement = styled.div`
-  transform: translateX(${(props: MovementProps) => props.movement + "px"});
-`;
-
 const MountainSvg = styled.svg`
   position: absolute;
   bottom: 0;
@@ -36,6 +29,7 @@ export type MountainType = {
   bottomColor: string;
   height: number;
   left: string;
+  movementMultiplier: number;
 };
 
 type Props = {
@@ -47,8 +41,17 @@ const Mountain = (props: Props) => {
   const movement = useSelector(selectMovement);
 
   return (
-    <StyledMountain scale={scale} left={props.mountain.left}>
-      <Movement movement={movement}>
+    <div
+      style={{
+        position: "fixed",
+        width: "100%",
+        height: "100%",
+        transform: `translateX(${
+          movement * props.mountain.movementMultiplier
+        }px)`,
+      }}
+    >
+      <StyledMountain scale={scale} left={props.mountain.left}>
         <MountainSvg
           x="-1"
           y="-1"
@@ -82,8 +85,8 @@ const Mountain = (props: Props) => {
             />
           </g>
         </MountainSvg>
-      </Movement>
-    </StyledMountain>
+      </StyledMountain>
+    </div>
   );
 };
 

@@ -15,11 +15,13 @@ const Mountains = () => {
   let mountains: MountainType[] = [];
 
   for (let index = 0; index < mountainCount; index++) {
+    const heightMultiplier = Math.random() + 0.5;
     mountains.push({
       topColor: "#228FB0",
       bottomColor: "#8BDCDC",
       left: Math.random() * 100 + "%",
-      height: (window.innerHeight / 3) * (Math.random() + 0.5),
+      height: (window.innerHeight / 3) * heightMultiplier,
+      movementMultiplier: (2 - heightMultiplier) / 30,
     });
   }
 
