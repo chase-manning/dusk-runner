@@ -14,11 +14,6 @@ const StyledApp = styled.div`
   height: 100%;
 `;
 
-const StyledMountain = styled.img`
-  position: absolute;
-  width: 50%;
-`;
-
 const App = () => {
   return (
     <StyledApp>
