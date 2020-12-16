@@ -15,7 +15,7 @@ interface playerState {
 const initialState: playerState = {
   state: PlayerState.RUNNING,
   height: 0,
-  speed: 10,
+  speed: 4,
 };
 
 export const playerSlice = createSlice({
@@ -29,7 +29,7 @@ export const playerSlice = createSlice({
       state.state = PlayerState.RUNNING;
     },
     setHeight: (state, action: PayloadAction<number>) => {
-      state.height = action.payload;
+      state.height = Math.round(action.payload);
     },
     setSpeed: (state, action: PayloadAction<number>) => {
       state.speed = action.payload;
