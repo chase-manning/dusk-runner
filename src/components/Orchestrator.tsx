@@ -11,8 +11,8 @@ import {
 } from "../store/playerSlice";
 
 const Orchestrator = () => {
-  const resistance = 0.15;
-  const startVelocity = 4;
+  const resistance = 0.5;
+  const startVelocity = 10;
 
   const dispatch = useDispatch();
 
