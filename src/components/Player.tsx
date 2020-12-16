@@ -1,13 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
-import {
-  PlayerState,
-  selectState,
-  run,
-  selectHeight,
-  setHeight,
-} from "../store/playerSlice";
+import { selectHeight } from "../store/playerSlice";
 
 type StyledPlayerProps = {
   height: number;
@@ -25,38 +19,7 @@ const StyledPlayer = styled.div`
 `;
 
 const Player = () => {
-  const resistance = 0.15;
-  const startVelocity = 4;
-
-  const dispatch = useDispatch();
-  const state = useSelector(selectState);
-
   const height = useSelector(selectHeight);
-  const heightRef = useRef(height);
-  heightRef.current = height;
-
-  const [velocity, setVelocity] = useState(startVelocity);
-  const velocityRef = useRef(velocity);
-  velocityRef.current = velocity;
-
-  const processJump = () => {
-    const newHeight = heightRef.current + velocityRef.current;
-    if (newHeight <= 0) {
-      dispatch(setHeight(0));
-      setVelocity(startVelocity);
-      dispatch(run());
-    } else {
-      dispatch(setHeight(newHeight));
-      setVelocity(velocityRef.current - resistance);
-      setTimeout(() => {
-        processJump();
-      }, 1000 / 60);
-    }
-  };
-
-  useEffect(() => {
-    if (state === PlayerState.JUMPING) processJump();
-  }, [state]);
 
   return <StyledPlayer height={height}></StyledPlayer>;
 };

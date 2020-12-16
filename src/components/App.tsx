@@ -7,6 +7,7 @@ import Suns from "./Suns";
 import Mountains from "./Mountains";
 import Player from "./Player";
 import EventHandler from "./EventHandler";
+import Orchestrator from "./Orchestrator";
 
 const StyledApp = styled.div`
   position: fixed;
@@ -26,6 +27,7 @@ const App = () => {
       <Floor color={"#16496E"} />
       <Player />
       <EventHandler />
+      <Orchestrator />
     </StyledApp>
   );
 };
