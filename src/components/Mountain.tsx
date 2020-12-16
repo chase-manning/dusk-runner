@@ -3,33 +3,39 @@ import styled from "styled-components";
 
 type StyledMountainProps = {
   scale: number;
+  left: string;
 };
 
 const StyledMountain = styled.div`
   position: absolute;
   bottom: 5%;
-  width: 100%;
-  height: 100%;
   transform-origin: bottom left;
   transform: scale(${(props: StyledMountainProps) => props.scale});
+  left: ${(props: StyledMountainProps) => props.left};
 `;
 
 const MountainSvg = styled.svg`
   position: absolute;
   bottom: 0;
+  transform: translateX(-50%);
 `;
 
-type Props = {
+export type MountainType = {
   topColor: string;
   bottomColor: string;
   height: number;
+  left: string;
+};
+
+type Props = {
+  mountain: MountainType;
 };
 
 const Mountain = (props: Props) => {
-  const scale = props.height / 392;
+  const scale = props.mountain.height / 392;
 
   return (
-    <StyledMountain scale={scale}>
+    <StyledMountain scale={scale} left={props.mountain.left}>
       <MountainSvg
         x="-1"
         y="-1"
@@ -39,8 +45,16 @@ const Mountain = (props: Props) => {
       >
         <defs>
           <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor={props.topColor} stopOpacity={1} />
-            <stop offset="100%" stopColor={props.bottomColor} stopOpacity={1} />
+            <stop
+              offset="0%"
+              stopColor={props.mountain.topColor}
+              stopOpacity={1}
+            />
+            <stop
+              offset="100%"
+              stopColor={props.mountain.bottomColor}
+              stopOpacity={1}
+            />
           </linearGradient>
         </defs>
         <g>
