@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import Background from "../components/Background";
 import { RootState } from "./store";
 
 interface backgroundState {
