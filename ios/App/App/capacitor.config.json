@@ -1,0 +1,13 @@
+{
+  "appId": "com.game01.app",
+  "appName": "game-01",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "public",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+}
