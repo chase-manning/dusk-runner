@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import qwe from "./qwe.svg";
 
 type StyledMountainProps = {
   scale: number;
