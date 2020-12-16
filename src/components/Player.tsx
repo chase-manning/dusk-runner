@@ -26,8 +26,8 @@ const StyledPlayer = styled.div`
 `;
 
 const Player = () => {
-  const resistance = 0.1;
-  const startVelocity = 3;
+  const resistance = 0.15;
+  const startVelocity = 4;
 
   const dispatch = useDispatch();
   const state = useSelector(selectState);
