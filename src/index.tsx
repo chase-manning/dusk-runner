@@ -8,6 +8,7 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   :root {
+    --foreground: #16496E;
     --test: red;
     --test2: blue;
   }
