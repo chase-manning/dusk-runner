@@ -5,6 +5,8 @@ import Floor from "./Floor";
 import Stars from "./Stars";
 import Suns from "./Suns";
 import Mountains from "./Mountains";
+import Player from "./Player";
+import EventHandler from "./EventHandler";
 
 const StyledApp = styled.div`
   position: fixed;
@@ -22,6 +24,8 @@ const App = () => {
       <Stars />
       <Mountains />
       <Floor color={"#16496E"} />
+      <Player />
+      <EventHandler />
     </StyledApp>
   );
 };
