@@ -4,6 +4,9 @@ import styled from "styled-components";
 import {
   selectSunHighlightColor,
   selectSunShadowColor,
+  selectSunDiameterMultiplier,
+  selectSunOpacityMultiplier,
+  selectSunSizeMultiplier,
 } from "../store/backgroundSlice";
 import Sun, { SunType } from "./Sun";
 
@@ -19,9 +22,10 @@ const Suns = () => {
   const highlightColor = useSelector(selectSunHighlightColor);
   const shadowColor = useSelector(selectSunShadowColor);
 
-  const baseDiameter = window.innerHeight / 4;
-  const sizeMultiplier = 1.4;
-  const opacityMultiplier = 0.6;
+  const sunDiameterMultiplier = useSelector(selectSunDiameterMultiplier);
+  const baseDiameter = window.innerHeight * sunDiameterMultiplier;
+  const sizeMultiplier = useSelector(selectSunSizeMultiplier);
+  const opacityMultiplier = useSelector(selectSunOpacityMultiplier);
 
   let suns: SunType[] = [];
 
