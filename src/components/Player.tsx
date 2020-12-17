@@ -30,7 +30,7 @@ const Player = () => {
         transform: `translateY(${-height}px)`,
       }}
     >
-      <StyledPlayer color={foregroundColor}></StyledPlayer>;
+      <StyledPlayer color={foregroundColor}></StyledPlayer>
     </div>
   );
 };
