@@ -21,7 +21,7 @@ const StyledApp = styled.div`
 const App = () => {
   return (
     <StyledApp>
-      <Background topColor={"#145377"} bottomColor={"#90E8E4"} />
+      <Background />
       <Suns highlight={"#EDF5ED"} shadow={"#EDF5ED00"} count={7} />
       <Stars />
       <Mountains />
