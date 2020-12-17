@@ -1,7 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import styled from "styled-components";
-import { selectMovement } from "../store/backgroundSlice";
 
 type StyledObstacleProps = {
   left: number;
