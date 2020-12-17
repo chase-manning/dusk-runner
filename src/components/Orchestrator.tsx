@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectMovement, setMovement } from "../store/backgroundSlice";
+import zones from "../config/zones";
+import { selectMovement, setMovement, setZone } from "../store/backgroundSlice";
 import { addObstacle, selectObstacles } from "../store/foregroundSlice";
 import { GameState, setGameState } from "../store/gameSlice";
 import {
@@ -91,6 +92,10 @@ const Orchestrator = () => {
     dispatch(setGameState(GameState.DEAD));
   };
 
+  const zoneChanger = () => {
+    if (movementRef.current < -1000) dispatch(setZone(zones[1]));
+  };
+
   const tick = () => {
     processJump();
     processBackgroundMovement();
@@ -100,6 +105,7 @@ const Orchestrator = () => {
 
   const environment = () => {
     addObstacles();
+    zoneChanger();
     setTimeout(() => environment(), 1000 / 10);
   };
 
