@@ -12,6 +12,7 @@ const StyledSun = styled.div`
   background: ${(props: SunType) =>
     "linear-gradient(" + props.highlight + ", " + props.shadow + ")"};
   opacity: ${(props: SunType) => props.opacity};
+  transition: all 10s;
 `;
 
 export type SunType = {
