@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { visitLexicalEnvironment } from "typescript";
 import { selectMovement, setMovement } from "../store/backgroundSlice";
 import { addObstacle, selectObstacles } from "../store/foregroundSlice";
+import { GameState, setGameState } from "../store/gameSlice";
 import {
   PlayerState,
   run,
@@ -89,6 +90,7 @@ const Orchestrator = () => {
 
   const endGame = () => {
     dispatch(setSpeed(0));
+    dispatch(setGameState(GameState.DEAD));
   };
 
   const tick = () => {
