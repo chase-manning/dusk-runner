@@ -22,7 +22,7 @@ const App = () => {
   return (
     <StyledApp>
       <Background />
-      <Suns highlight={"#EDF5ED"} shadow={"#EDF5ED00"} count={7} />
+      <Suns />
       <Stars />
       <Mountains />
       <Floor color={"#16496E"} />

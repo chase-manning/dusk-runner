@@ -1,5 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
+import {
+  selectSunHighlightColor,
+  selectSunShadowColor,
+} from "../store/backgroundSlice";
 import Sun, { SunType } from "./Sun";
 
 const StyledSuns = styled.div`
@@ -10,23 +15,20 @@ const StyledSuns = styled.div`
   height: 100%;
 `;
 
-type Props = {
-  highlight: string;
-  shadow: string;
-  count: number;
-};
+const Suns = () => {
+  const highlightColor = useSelector(selectSunHighlightColor);
+  const shadowColor = useSelector(selectSunShadowColor);
 
-const Suns = (props: Props) => {
   const baseDiameter = window.innerHeight / 4;
   const sizeMultiplier = 1.4;
   const opacityMultiplier = 0.6;
 
   let suns: SunType[] = [];
 
-  for (let index = 0; index < props.count; index++) {
+  for (let index = 0; index < 7; index++) {
     suns.push({
-      highlight: props.highlight,
-      shadow: props.shadow,
+      highlight: highlightColor,
+      shadow: shadowColor,
       diameter: baseDiameter * Math.pow(sizeMultiplier, index),
       opacity: Math.pow(opacityMultiplier, index),
     });
