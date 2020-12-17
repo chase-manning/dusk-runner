@@ -1,13 +1,15 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import playerReducer from "./playerSlice";
 import backgroundReducer from "./backgroundSlice";
-import foregroundReduce from "./foregroundSlice";
+import foregroundReducer from "./foregroundSlice";
+import gameReducer from "./gameSlice";
 
 export const store = configureStore({
   reducer: {
     player: playerReducer,
     background: backgroundReducer,
-    foreground: foregroundReduce,
+    foreground: foregroundReducer,
+    game: gameReducer,
   },
 });
 
