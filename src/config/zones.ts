@@ -6,14 +6,14 @@ const zones: Zone[] = [
     backgroundBottomColor: "#90E8E4",
     sunHighlightColor: "#EDF5ED",
     sunShadowColor: "#EDF5ED00",
-    floorColor: "#16496e",
+    foregroundColor: "#16496e",
   },
   {
     backgroundTopColor: "#90C0BC",
     backgroundBottomColor: "#EE8BB0",
     sunHighlightColor: "#F7F5EF",
     sunShadowColor: "#EEA6BC",
-    floorColor: "#04222C",
+    foregroundColor: "#04222C",
   },
 ];
 

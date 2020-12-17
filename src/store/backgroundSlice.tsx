@@ -7,7 +7,7 @@ export type Zone = {
   backgroundBottomColor: string;
   sunHighlightColor: string;
   sunShadowColor: string;
-  floorColor: string;
+  foregroundColor: string;
 };
 
 interface backgroundState {
@@ -17,7 +17,7 @@ interface backgroundState {
 
 const initialState: backgroundState = {
   movement: 0,
-  zone: zones[0],
+  zone: zones[1],
 };
 
 export const backgroundSlice = createSlice({
@@ -44,7 +44,7 @@ export const selectSunHighlightColor = (state: RootState) =>
   state.background.zone.sunHighlightColor;
 export const selectSunShadowColor = (state: RootState) =>
   state.background.zone.sunShadowColor;
-export const selectFloorColor = (state: RootState) =>
-  state.background.zone.floorColor;
+export const selectForegroundColor = (state: RootState) =>
+  state.background.zone.foregroundColor;
 
 export default backgroundSlice.reducer;
