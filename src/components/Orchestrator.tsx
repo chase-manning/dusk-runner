@@ -1,7 +1,5 @@
-import { ENGINE_METHOD_PKEY_ASN1_METHS } from "constants";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { visitLexicalEnvironment } from "typescript";
 import { selectMovement, setMovement } from "../store/backgroundSlice";
 import { addObstacle, selectObstacles } from "../store/foregroundSlice";
 import { GameState, setGameState } from "../store/gameSlice";
@@ -108,6 +106,8 @@ const Orchestrator = () => {
   useEffect(() => {
     tick();
     environment();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return null;
