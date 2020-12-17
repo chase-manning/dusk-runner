@@ -34,6 +34,8 @@ const Suns = () => {
     });
   }
 
+  suns = suns.reverse();
+
   return (
     <StyledSuns>
       {suns.map((sun: SunType) => (
