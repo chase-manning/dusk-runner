@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { visitLexicalEnvironment } from "typescript";
 import { selectMovement, setMovement } from "../store/backgroundSlice";
+import { addObstacle, selectObstacles } from "../store/foregroundSlice";
 import {
   PlayerState,
   run,
@@ -24,6 +26,10 @@ const Orchestrator = () => {
   const heightRef = useRef(height);
   heightRef.current = height;
 
+  const obstacles = useSelector(selectObstacles);
+  const obstaclesRef = useRef(obstacles);
+  obstaclesRef.current = obstacles;
+
   const [velocity, setVelocity] = useState(startVelocity);
   const velocityRef = useRef(velocity);
   velocityRef.current = velocity;
@@ -37,6 +43,7 @@ const Orchestrator = () => {
   speedRef.current = speed;
 
   const processJump = () => {
+    if (stateRef.current !== PlayerState.JUMPING) return;
     const newHeight = heightRef.current + velocityRef.current;
     if (newHeight <= 0) {
       dispatch(setHeight(0));
@@ -52,14 +59,35 @@ const Orchestrator = () => {
     dispatch(setMovement(movementRef.current - speedRef.current));
   };
 
+  const addObstacles = () => {
+    const MINIMUM_GAP = 150;
+    const MAXIMUM_GAP = 500;
+    if (obstaclesRef.current.length === 0) {
+      dispatch(addObstacle({ left: window.innerWidth + 200 }));
+      return;
+    }
+    const obstacle = obstaclesRef.current[obstaclesRef.current.length - 1];
+    if (obstacle.left + movementRef.current < window.innerWidth + 100) {
+      const obstacleGap =
+        Math.random() * (MAXIMUM_GAP - MINIMUM_GAP) + MINIMUM_GAP;
+      dispatch(addObstacle({ left: obstacle.left + obstacleGap }));
+    }
+  };
+
   const tick = () => {
-    if (stateRef.current === PlayerState.JUMPING) processJump();
+    processJump();
     processBackgroundMovement();
     setTimeout(() => tick(), 1000 / 60);
   };
 
+  const environment = () => {
+    addObstacles();
+    setTimeout(() => environment(), 1000 / 10);
+  };
+
   useEffect(() => {
     tick();
+    environment();
   }, []);
 
   return null;

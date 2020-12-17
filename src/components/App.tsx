@@ -8,7 +8,8 @@ import Mountains from "./Mountains";
 import Player from "./Player";
 import EventHandler from "./EventHandler";
 import Orchestrator from "./Orchestrator";
-import Obstacle from "./Obstacle";
+import Obstacles from "./Obstacles";
+import Foreground from "./Foreground";
 
 const StyledApp = styled.div`
   position: fixed;
@@ -26,7 +27,7 @@ const App = () => {
       <Stars />
       <Mountains />
       <Floor color={"#16496E"} />
-      <Obstacle />
+      <Foreground />
       <Player />
       <EventHandler />
       <Orchestrator />
