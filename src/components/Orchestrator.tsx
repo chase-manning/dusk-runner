@@ -1,3 +1,4 @@
+import { ENGINE_METHOD_PKEY_ASN1_METHS } from "constants";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { visitLexicalEnvironment } from "typescript";
@@ -10,7 +11,9 @@ import {
   selectSpeed,
   selectState,
   setHeight,
+  setSpeed,
 } from "../store/playerSlice";
+import { ObstacleType } from "./Obstacle";
 
 const Orchestrator = () => {
   const resistance = 0.5;
@@ -74,9 +77,24 @@ const Orchestrator = () => {
     }
   };
 
+  const collisionDetection = () => {
+    if (heightRef.current > 40) return null;
+    const playerPosition = window.innerWidth * 0.25;
+    const collision = obstaclesRef.current.some((obstacle: ObstacleType) => {
+      const pos = obstacle.left + movementRef.current;
+      return pos > playerPosition && pos < playerPosition + 20;
+    });
+    if (collision) endGame();
+  };
+
+  const endGame = () => {
+    dispatch(setSpeed(0));
+  };
+
   const tick = () => {
     processJump();
     processBackgroundMovement();
+    collisionDetection();
     setTimeout(() => tick(), 1000 / 60);
   };
 
