@@ -12,6 +12,9 @@ export type Zone = {
   backAssetBottomColor: string;
   smallStars: number;
   largeStars: number;
+  sunDiameterMultiplier: number;
+  sunSizeMultiplier: number;
+  sunOpacityMultiplier: number;
 };
 
 interface backgroundState {
@@ -58,5 +61,11 @@ export const selectSmallStars = (state: RootState) =>
   state.background.zone.smallStars;
 export const selectLargeStars = (state: RootState) =>
   state.background.zone.largeStars;
+export const selectSunDiameterMultiplier = (state: RootState) =>
+  state.background.zone.sunDiameterMultiplier;
+export const selectSunSizeMultiplier = (state: RootState) =>
+  state.background.zone.sunSizeMultiplier;
+export const selectSunOpacityMultiplier = (state: RootState) =>
+  state.background.zone.sunOpacityMultiplier;
 
 export default backgroundSlice.reducer;
