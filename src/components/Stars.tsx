@@ -1,5 +1,7 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
+import { selectLargeStars, selectSmallStars } from "../store/backgroundSlice";
 import StarLarge, { StarLargeType } from "./StarLarge";
 import StarSmall, { StarSmallType } from "./StarSmall";
 
@@ -12,8 +14,8 @@ const StyledStars = styled.div`
 `;
 
 const Stars = () => {
-  const smallStarsCount = 80;
-  const largeStarsCount = 4;
+  const smallStarsCount = useSelector(selectSmallStars);
+  const largeStarsCount = useSelector(selectLargeStars);
 
   let smallStars: StarSmallType[] = [];
   for (let index = 0; index < smallStarsCount; index++) {

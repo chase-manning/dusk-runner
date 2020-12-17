@@ -8,6 +8,10 @@ export type Zone = {
   sunHighlightColor: string;
   sunShadowColor: string;
   foregroundColor: string;
+  backAssetTopColor: string;
+  backAssetBottomColor: string;
+  smallStars: number;
+  largeStars: number;
 };
 
 interface backgroundState {
@@ -46,5 +50,13 @@ export const selectSunShadowColor = (state: RootState) =>
   state.background.zone.sunShadowColor;
 export const selectForegroundColor = (state: RootState) =>
   state.background.zone.foregroundColor;
+export const selectBackAssetTopColor = (state: RootState) =>
+  state.background.zone.backAssetTopColor;
+export const selectBackAssetBottomColor = (state: RootState) =>
+  state.background.zone.backAssetBottomColor;
+export const selectSmallStars = (state: RootState) =>
+  state.background.zone.smallStars;
+export const selectLargeStars = (state: RootState) =>
+  state.background.zone.largeStars;
 
 export default backgroundSlice.reducer;

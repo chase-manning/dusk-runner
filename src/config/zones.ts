@@ -7,6 +7,10 @@ const zones: Zone[] = [
     sunHighlightColor: "#EDF5ED",
     sunShadowColor: "#EDF5ED00",
     foregroundColor: "#16496e",
+    backAssetTopColor: "#228FB0",
+    backAssetBottomColor: "#8BDCDC",
+    smallStars: 80,
+    largeStars: 4,
   },
   {
     backgroundTopColor: "#90C0BC",
@@ -14,6 +18,10 @@ const zones: Zone[] = [
     sunHighlightColor: "#F7F5EF",
     sunShadowColor: "#EEA6BC",
     foregroundColor: "#04222C",
+    backAssetTopColor: "#F0E2DE",
+    backAssetBottomColor: "#EAD7CF",
+    smallStars: 0,
+    largeStars: 0,
   },
 ];
 

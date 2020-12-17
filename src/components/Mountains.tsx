@@ -1,5 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
+import {
+  selectBackAssetBottomColor,
+  selectBackAssetTopColor,
+} from "../store/backgroundSlice";
 import Mountain, { MountainType } from "./Mountain";
 
 const StyledMountains = styled.div`
@@ -11,14 +16,17 @@ const StyledMountains = styled.div`
 `;
 
 const Mountains = () => {
+  const topColor = useSelector(selectBackAssetTopColor);
+  const bottomColor = useSelector(selectBackAssetBottomColor);
+
   const mountainCount = 10;
   let mountains: MountainType[] = [];
 
   for (let index = 0; index < mountainCount; index++) {
     const heightMultiplier = Math.random() + 0.5;
     mountains.push({
-      topColor: "#228FB0",
-      bottomColor: "#8BDCDC",
+      topColor: topColor,
+      bottomColor: bottomColor,
       left: Math.random() * 100 + "%",
       height: (window.innerHeight / 3) * heightMultiplier,
       movementMultiplier: (2 - heightMultiplier) / 30,
