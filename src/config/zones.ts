@@ -23,10 +23,10 @@ const zones: Zone[] = [
     foregroundColor: "#1C425B",
     backAssetTopColor: "#E9D7D5",
     backAssetBottomColor: "#E9D7D5",
-    smallStars: 0,
+    smallStars: 60,
     largeStars: 0,
     sunDiameterMultiplier: 1 / 3,
-    sunSizeMultiplier: 1.2,
+    sunSizeMultiplier: 1.3,
     sunOpacityMultiplier: 0.4,
   },
 ];
