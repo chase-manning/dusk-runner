@@ -18,8 +18,7 @@ const EventHandler = () => {
   return (
     <StyledEventHandler
       onClick={() => {
-        console.log("triggering jump");
-        dispatch(jump());
+        if (state !== PlayerState.JUMPING) dispatch(jump());
       }}
     ></StyledEventHandler>
   );
