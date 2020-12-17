@@ -25,7 +25,7 @@ const App = () => {
       <Suns />
       <Stars />
       <Mountains />
-      <Floor color={"#16496E"} />
+      <Floor />
       <Foreground />
       <Player />
       <EventHandler />
