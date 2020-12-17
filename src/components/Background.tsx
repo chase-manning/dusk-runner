@@ -19,6 +19,7 @@ const StyledBackground = styled.div`
   height: 100%;
   background: ${(props: StyledBackgroundProps) =>
     "linear-gradient(" + props.topColor + ", " + props.bottomColor + ")"};
+  transition: all 10s;
 `;
 
 const Background = () => {
