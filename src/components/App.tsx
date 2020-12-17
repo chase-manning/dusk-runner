@@ -8,7 +8,6 @@ import Mountains from "./Mountains";
 import Player from "./Player";
 import EventHandler from "./EventHandler";
 import Orchestrator from "./Orchestrator";
-import Obstacles from "./Obstacles";
 import Foreground from "./Foreground";
 
 const StyledApp = styled.div`
