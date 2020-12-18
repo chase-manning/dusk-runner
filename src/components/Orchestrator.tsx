@@ -129,8 +129,8 @@ const Orchestrator = () => {
   };
 
   const backAssetGap = () => {
-    const MINIMUM_GAP = 150;
-    const MAXIMUM_GAP = 500;
+    const MINIMUM_GAP = 15;
+    const MAXIMUM_GAP = 200;
     return Math.random() * (MAXIMUM_GAP - MINIMUM_GAP) + MINIMUM_GAP;
   };
 
