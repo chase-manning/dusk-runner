@@ -4,11 +4,11 @@ import Background from "./Background";
 import Floor from "./Floor";
 import Stars from "./Stars";
 import Suns from "./Suns";
-import Mountains from "./Mountains";
 import Player from "./Player";
 import EventHandler from "./EventHandler";
 import Orchestrator from "./Orchestrator";
 import Foreground from "./Foreground";
+import BackgroundAssets from "./BackgroundAssets";
 
 const StyledApp = styled.div`
   position: fixed;
@@ -24,7 +24,7 @@ const App = () => {
       <Background />
       <Suns />
       <Stars />
-      <Mountains />
+      <BackgroundAssets />
       <Floor />
       <Foreground />
       <Player />

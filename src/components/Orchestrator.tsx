@@ -1,7 +1,17 @@
+import userEvent from "@testing-library/user-event";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import zones from "../config/zones";
-import { selectMovement, setMovement, setZone } from "../store/backgroundSlice";
+import {
+  selectMovement,
+  setMovement,
+  setZone,
+  addBackAsset,
+  selectBackAssetType,
+  selectZone,
+  selectBackAssets,
+  BackAssetType,
+} from "../store/backgroundSlice";
 import { addObstacle, selectObstacles } from "../store/foregroundSlice";
 import { GameState, setGameState } from "../store/gameSlice";
 import {
@@ -20,6 +30,14 @@ const Orchestrator = () => {
   const startVelocity = 10;
 
   const dispatch = useDispatch();
+
+  const backAssets = useSelector(selectBackAssets);
+  const backAssetsRef = useRef(backAssets);
+  backAssetsRef.current = backAssets;
+
+  const zone = useSelector(selectZone);
+  const zoneRef = useRef(zone);
+  zoneRef.current = zone;
 
   const state = useSelector(selectState);
   const stateRef = useRef(state);
@@ -96,6 +114,37 @@ const Orchestrator = () => {
     if (movementRef.current < -1000) dispatch(setZone(zones[1]));
   };
 
+  const addBackAssetLocal = (left: number): BackAssetType => {
+    const heightMultiplier = Math.random() + 0.5;
+    const backAsset = {
+      backAssetType: zoneRef.current.backAssetType,
+      topColor: zoneRef.current.backAssetTopColor,
+      bottomColor: zoneRef.current.backAssetBottomColor,
+      left: left,
+      height: (window.innerHeight / 3) * heightMultiplier,
+      movementMultiplier: (2 - heightMultiplier) / 30,
+    };
+    dispatch(addBackAsset(backAsset));
+    return backAsset;
+  };
+
+  const backAssetGap = () => {
+    const MINIMUM_GAP = 150;
+    const MAXIMUM_GAP = 500;
+    return Math.random() * (MAXIMUM_GAP - MINIMUM_GAP) + MINIMUM_GAP;
+  };
+
+  const addBackAssets = () => {
+    if (backAssetsRef.current.length === 0) {
+      addBackAssetLocal(backAssetGap());
+      return;
+    }
+    let backAsset = backAssetsRef.current[backAssetsRef.current.length - 1];
+    while (backAsset.left + movementRef.current < window.innerWidth + 500) {
+      backAsset = addBackAssetLocal(backAsset.left + backAssetGap());
+    }
+  };
+
   const tick = () => {
     processJump();
     processBackgroundMovement();
@@ -106,6 +155,7 @@ const Orchestrator = () => {
   const environment = () => {
     addObstacles();
     zoneChanger();
+    addBackAssets();
     setTimeout(() => environment(), 1000 / 10);
   };
 

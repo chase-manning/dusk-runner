@@ -1,6 +1,15 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import zones, { BackAssetType } from "../config/zones";
+import zones, { BackAsset } from "../config/zones";
 import { RootState } from "./store";
+
+export type BackAssetType = {
+  backAssetType: BackAsset;
+  topColor: string;
+  bottomColor: string;
+  height: number;
+  left: number;
+  movementMultiplier: number;
+};
 
 export type Zone = {
   backgroundTopColor: string;
@@ -8,7 +17,7 @@ export type Zone = {
   sunHighlightColor: string;
   sunShadowColor: string;
   foregroundColor: string;
-  backAssetType: BackAssetType;
+  backAssetType: BackAsset;
   backAssetTopColor: string;
   backAssetBottomColor: string;
   smallStars: number;
@@ -21,11 +30,13 @@ export type Zone = {
 interface backgroundState {
   movement: number;
   zone: Zone;
+  backAssets: BackAssetType[];
 }
 
 const initialState: backgroundState = {
   movement: 0,
   zone: zones[0],
+  backAssets: [],
 };
 
 export const backgroundSlice = createSlice({
@@ -38,12 +49,18 @@ export const backgroundSlice = createSlice({
     setZone: (state, action: PayloadAction<Zone>) => {
       state.zone = action.payload;
     },
+    addBackAsset: (state, action: PayloadAction<BackAssetType>) => {
+      state.backAssets.push(action.payload);
+    },
   },
 });
 
-export const { setMovement, setZone } = backgroundSlice.actions;
+export const { setMovement, setZone, addBackAsset } = backgroundSlice.actions;
 
 export const selectMovement = (state: RootState) => state.background.movement;
+export const selectBackAssets = (state: RootState) =>
+  state.background.backAssets;
+export const selectZone = (state: RootState) => state.background.zone;
 export const selectBackgroundTopColor = (state: RootState) =>
   state.background.zone.backgroundTopColor;
 export const selectBackgroundBottomColor = (state: RootState) =>

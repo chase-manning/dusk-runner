@@ -1,11 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
-import { selectMovement } from "../store/backgroundSlice";
+import { BackAssetType, selectMovement } from "../store/backgroundSlice";
 
 type StyledMountainProps = {
   scale: number;
-  left: string;
+  left: number;
 };
 
 const StyledMountain = styled.div`
@@ -13,7 +13,7 @@ const StyledMountain = styled.div`
   bottom: 5%;
   transform-origin: bottom left;
   transform: scale(${(props: StyledMountainProps) => props.scale});
-  left: ${(props: StyledMountainProps) => props.left};
+  left: ${(props: StyledMountainProps) => props.left + "px"};
 `;
 
 const MountainSvg = styled.svg`
@@ -22,20 +22,12 @@ const MountainSvg = styled.svg`
   transform: translateX(-50%);
 `;
 
-export type MountainType = {
-  topColor: string;
-  bottomColor: string;
-  height: number;
-  left: string;
-  movementMultiplier: number;
-};
-
 type Props = {
-  mountain: MountainType;
+  backAsset: BackAssetType;
 };
 
 const Mountain = (props: Props) => {
-  const scale = props.mountain.height / 392;
+  const scale = props.backAsset.height / 392;
   const movement = useSelector(selectMovement);
 
   return (
@@ -45,11 +37,11 @@ const Mountain = (props: Props) => {
         width: "100%",
         height: "100%",
         transform: `translateX(${
-          movement * props.mountain.movementMultiplier
+          movement * props.backAsset.movementMultiplier
         }px)`,
       }}
     >
-      <StyledMountain scale={scale} left={props.mountain.left}>
+      <StyledMountain scale={scale} left={props.backAsset.left}>
         <MountainSvg
           x="-1"
           y="-1"
@@ -61,12 +53,12 @@ const Mountain = (props: Props) => {
             <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
               <stop
                 offset="0%"
-                stopColor={props.mountain.topColor}
+                stopColor={props.backAsset.topColor}
                 stopOpacity={1}
               />
               <stop
                 offset="100%"
-                stopColor={props.mountain.bottomColor}
+                stopColor={props.backAsset.bottomColor}
                 stopOpacity={1}
               />
             </linearGradient>

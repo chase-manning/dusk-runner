@@ -1,6 +1,6 @@
 import { Zone } from "../store/backgroundSlice";
 
-export enum BackAssetType {
+export enum BackAsset {
   MOUNTAIN,
   CLOUD,
 }
@@ -12,7 +12,7 @@ const zones: Zone[] = [
     sunHighlightColor: "#EDF5ED",
     sunShadowColor: "#EDF5ED00",
     foregroundColor: "#16496e",
-    backAssetType: BackAssetType.MOUNTAIN,
+    backAssetType: BackAsset.MOUNTAIN,
     backAssetTopColor: "#228FB0",
     backAssetBottomColor: "#8BDCDC",
     smallStars: 80,
@@ -27,7 +27,7 @@ const zones: Zone[] = [
     sunHighlightColor: "#F7F5EF",
     sunShadowColor: "#EEA6BC",
     foregroundColor: "#1C425B",
-    backAssetType: BackAssetType.CLOUD,
+    backAssetType: BackAsset.CLOUD,
     backAssetTopColor: "#E9D7D5",
     backAssetBottomColor: "#E9266C",
     smallStars: 60,
