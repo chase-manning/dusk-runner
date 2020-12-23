@@ -30,8 +30,9 @@ const BackgroundAssets = () => {
       {backAssetsSorted.map((backAsset: BackAssetType) => {
         if (backAsset.backAssetType === BackAsset.MOUNTAIN)
           return <Mountain backAsset={backAsset} />;
-        if (backAsset.backAssetType === BackAsset.CLOUD)
+        else if (backAsset.backAssetType === BackAsset.CLOUD)
           return <Cloud backAsset={backAsset} />;
+        else return null;
       })}
     </StyledBackgroundAssets>
   );
