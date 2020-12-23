@@ -13,7 +13,7 @@ export type BackAssetType = {
 
 interface backgroundState {
   movement: number;
-  zone: Zone;
+  zone: Zone; //TODO Move Zone Stuff to Zone Slize
   backAssets: BackAssetType[];
 }
 
