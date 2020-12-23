@@ -17,13 +17,13 @@ const StyledMenu = styled.div`
 `;
 
 const StageOption = styled.div`
-  height: 60%;
+  height: 70%;
   background-color: green;
   width: 200px;
   overflow: hidden;
-  border-radius: 40px;
-  border: white solid 2px;
-  box-shadow: 10px 10px 10px black;
+  border-radius: 30px;
+  border: white solid 1px;
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.5);
   margin-right: 40px;
   display: flex;
   justify-content: center;
