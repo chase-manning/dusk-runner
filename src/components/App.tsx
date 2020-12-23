@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Game from "./Game";
+import Init from "./Init";
 import Menu from "./Menu";
 
 const StyledApp = styled.div`
@@ -14,6 +15,7 @@ const StyledApp = styled.div`
 const App = () => {
   return (
     <StyledApp>
+      <Init />
       <Game />
       <Menu />
     </StyledApp>
