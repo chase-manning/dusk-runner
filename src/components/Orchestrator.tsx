@@ -1,24 +1,16 @@
-import userEvent from "@testing-library/user-event";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import zones from "../config/zones";
 import {
   selectMovement,
   setMovement,
-  setZone,
   addBackAsset,
-  selectBackAssetType,
   selectZone,
   selectBackAssets,
   BackAssetType,
 } from "../store/backgroundSlice";
 import { addObstacle, selectObstacles } from "../store/foregroundSlice";
-import {
-  GameState,
-  setGameState,
-  selectCompletedStages,
-  setCompletedStages,
-} from "../store/gameSlice";
+import { selectCompletedStages, setCompletedStages } from "../store/gameSlice";
 import {
   PlayerState,
   run,
