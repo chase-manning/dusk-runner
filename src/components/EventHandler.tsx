@@ -19,7 +19,8 @@ const EventHandler = () => {
   return (
     <StyledEventHandler
       onClick={() => {
-        if (state === PlayerState.DEAD) dispatch(setGameState(GameState.MENU));
+        if (state === PlayerState.DEAD || state === PlayerState.COMPLETE)
+          dispatch(setGameState(GameState.MENU));
         else if (state === PlayerState.RUNNING) dispatch(jump());
       }}
     ></StyledEventHandler>
