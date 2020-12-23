@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { GameState, selectGameState } from "../store/gameSlice";
 import Background from "./Background";
 import BackgroundAssets from "./BackgroundAssets";
+import Complete from "./Complete";
 import EventHandler from "./EventHandler";
 import Floor from "./Floor";
 import Foreground from "./Foreground";
@@ -40,6 +41,7 @@ const Game = () => {
       <Floor />
       <Foreground />
       <Player />
+      <Complete />
       <EventHandler />
       <Orchestrator />
     </StyledGame>
