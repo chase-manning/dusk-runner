@@ -35,10 +35,14 @@ import { Plugins as CapacitorPlugins } from "@capacitor/core";
 const { Storage } = CapacitorPlugins;
 
 const Orchestrator = () => {
-  const resistance = 0.5;
+  const resistance = 0.5 / 4;
   const startVelocity = 10;
 
   const dispatch = useDispatch();
+
+  const [velocity, setVelocity] = useState(startVelocity);
+  const velocityRef = useRef(velocity);
+  velocityRef.current = velocity;
 
   const completedStages = useSelector(selectCompletedStages);
   const completedStagesRef = useRef(completedStages);
@@ -64,10 +68,6 @@ const Orchestrator = () => {
   const obstaclesRef = useRef(obstacles);
   obstaclesRef.current = obstacles;
 
-  const [velocity, setVelocity] = useState(startVelocity);
-  const velocityRef = useRef(velocity);
-  velocityRef.current = velocity;
-
   const movement = useSelector(selectMovement);
   const movementRef = useRef(movement);
   movementRef.current = movement;
@@ -85,7 +85,7 @@ const Orchestrator = () => {
       dispatch(run());
     } else {
       dispatch(setHeight(newHeight));
-      setVelocity(velocityRef.current - resistance);
+      setVelocity(velocityRef.current - resistance * speedRef.current);
     }
   };
 
