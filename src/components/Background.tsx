@@ -1,15 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import styled from "styled-components";
-import {
-  selectBackgroundBottomColor,
-  selectBackgroundTopColor,
-} from "../store/backgroundSlice";
-
-type StyledBackgroundProps = {
-  topColor: string;
-  bottomColor: string;
-};
 
 const StyledBackground = styled.div`
   position: absolute;
@@ -17,15 +7,12 @@ const StyledBackground = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: ${(props: StyledBackgroundProps) =>
-    "linear-gradient(" + props.topColor + ", " + props.bottomColor + ")"};
+  background: linear-gradient(
+    var(--backgroundTopColor),
+    var(--backgroundBottomColor)
+  );
   transition: all 10s;
 `;
 
-const Background = () => {
-  const topColor = useSelector(selectBackgroundTopColor);
-  const bottomColor = useSelector(selectBackgroundBottomColor);
-
-  return <StyledBackground topColor={topColor} bottomColor={bottomColor} />;
-};
+const Background = () => <StyledBackground />;
 export default Background;
