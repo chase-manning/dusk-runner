@@ -14,8 +14,8 @@ const StyledApp = styled.div`
 const App = () => {
   return (
     <StyledApp>
-      <Menu />
       <Game />
+      <Menu />
     </StyledApp>
   );
 };
