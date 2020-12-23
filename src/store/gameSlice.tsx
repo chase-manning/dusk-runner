@@ -4,6 +4,7 @@ import { RootState } from "./store";
 export enum GameState {
   RUNNING,
   DEAD,
+  MENU,
 }
 
 interface gameState {
