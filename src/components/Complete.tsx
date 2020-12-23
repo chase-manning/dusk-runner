@@ -25,16 +25,16 @@ type Props = {
 };
 
 const Header = styled.div`
-  font-size: 20rem;
-  color: var(--foreground);
+  font-size: 5rem;
+  color: var(--foregroundColor);
   margin-bottom: 20px;
   opacity: ${(props: Props) => (props.complete ? "1" : "0")};
   transition: 2s opacity 2s;
 `;
 
 const SubHeader = styled.div`
-  font-size: 10rem;
-  color: var(--foreground);
+  font-size: 2rem;
+  color: var(--foregroundColor);
   opacity: ${(props: Props) => (props.complete ? "1" : "0")};
   transition: 4s opacity 2s;
 `;
