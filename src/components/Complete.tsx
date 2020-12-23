@@ -26,6 +26,7 @@ type Props = {
 
 const Header = styled.div`
   font-size: 5rem;
+  text-align: center;
   color: var(--foregroundColor);
   margin-bottom: 20px;
   opacity: ${(props: Props) => (props.complete ? "1" : "0")};
@@ -34,6 +35,7 @@ const Header = styled.div`
 
 const SubHeader = styled.div`
   font-size: 2rem;
+  text-align: center;
   color: var(--foregroundColor);
   opacity: ${(props: Props) => (props.complete ? "1" : "0")};
   transition: 4s opacity 2s;
