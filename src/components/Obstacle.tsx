@@ -1,10 +1,7 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import styled from "styled-components";
-import { selectForegroundColor } from "../store/backgroundSlice";
 
 type StyledObstacleProps = {
-  color: string;
   left: number;
 };
 
@@ -14,7 +11,7 @@ const StyledObstacle = styled.div`
   bottom: 5%;
   width: 20px;
   height: 40px;
-  background-color: ${(props: StyledObstacleProps) => props.color};
+  background-color: var(--foregroundColor);
 `;
 
 export type ObstacleType = {
@@ -24,12 +21,9 @@ export type ObstacleType = {
 type Props = {
   obstacle: ObstacleType;
 };
-
+//TODO Change this to not use global styles for animations
 const Obstacle = (props: Props) => {
-  const color = useSelector(selectForegroundColor);
-  return (
-    <StyledObstacle left={props.obstacle.left} color={color}></StyledObstacle>
-  );
+  return <StyledObstacle left={props.obstacle.left}></StyledObstacle>;
 };
 
 export default Obstacle;
