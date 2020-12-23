@@ -31,6 +31,8 @@ import {
   setSpeed,
 } from "../store/playerSlice";
 import { ObstacleType } from "./Obstacle";
+import { Plugins as CapacitorPlugins } from "@capacitor/core";
+const { Storage } = CapacitorPlugins;
 
 const Orchestrator = () => {
   const resistance = 0.5;
@@ -158,8 +160,11 @@ const Orchestrator = () => {
     if (movementRef.current < -10000) {
       dispatch(complete());
       dispatch(setSpeed(0));
-      if (zones.indexOf(zoneRef.current) >= completedStagesRef.current)
-        dispatch(setCompletedStages(completedStagesRef.current + 1));
+      if (zones.indexOf(zoneRef.current) >= completedStagesRef.current) {
+        const newCompletedStages = completedStagesRef.current + 1;
+        dispatch(setCompletedStages(newCompletedStages));
+        Storage.set({ key: "stage", value: newCompletedStages.toString() });
+      }
     }
   };
 
