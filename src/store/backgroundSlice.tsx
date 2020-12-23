@@ -61,8 +61,6 @@ export const selectMovement = (state: RootState) => state.background.movement;
 export const selectBackAssets = (state: RootState) =>
   state.background.backAssets;
 export const selectZone = (state: RootState) => state.background.zone;
-export const selectBackgroundTopColor = (state: RootState) =>
-  state.background.zone.backgroundTopColor;
 export const selectBackgroundBottomColor = (state: RootState) =>
   state.background.zone.backgroundBottomColor;
 export const selectSunHighlightColor = (state: RootState) =>
