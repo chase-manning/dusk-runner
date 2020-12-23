@@ -1,3 +1,6 @@
+import zone01 from "../assets/zone-01.png";
+import zone02 from "../assets/zone-02.png";
+
 export enum BackAsset {
   MOUNTAIN,
   CLOUD,
@@ -21,6 +24,7 @@ export type Zone = {
   sunDiameterMultiplier: number;
   sunSizeMultiplier: number;
   sunOpacityMultiplier: number;
+  asset: string;
 };
 
 const zones: Zone[] = [
@@ -40,6 +44,7 @@ const zones: Zone[] = [
     sunDiameterMultiplier: 1 / 4,
     sunSizeMultiplier: 1.4,
     sunOpacityMultiplier: 0.6,
+    asset: zone01,
   },
   {
     colorTheme: {
@@ -57,6 +62,7 @@ const zones: Zone[] = [
     sunDiameterMultiplier: 1 / 3,
     sunSizeMultiplier: 1.3,
     sunOpacityMultiplier: 0.4,
+    asset: zone02,
   },
 ];
 
