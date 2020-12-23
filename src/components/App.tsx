@@ -1,14 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Background from "./Background";
-import Floor from "./Floor";
-import Stars from "./Stars";
-import Suns from "./Suns";
-import Player from "./Player";
-import EventHandler from "./EventHandler";
-import Orchestrator from "./Orchestrator";
-import Foreground from "./Foreground";
-import BackgroundAssets from "./BackgroundAssets";
+import Game from "./Game";
 
 const StyledApp = styled.div`
   position: fixed;
@@ -21,15 +13,7 @@ const StyledApp = styled.div`
 const App = () => {
   return (
     <StyledApp>
-      <Background />
-      <Suns />
-      <Stars />
-      <BackgroundAssets />
-      <Floor />
-      <Foreground />
-      <Player />
-      <EventHandler />
-      <Orchestrator />
+      <Game />
     </StyledApp>
   );
 };
