@@ -47,10 +47,6 @@ export const selectBackAssets = (state: RootState) =>
 export const selectZone = (state: RootState) => state.background.zone;
 export const selectColorTheme = (state: RootState) =>
   state.background.zone.colorTheme;
-export const selectSunHighlightColor = (state: RootState) =>
-  state.background.zone.colorTheme.sunHighlightColor;
-export const selectSunShadowColor = (state: RootState) =>
-  state.background.zone.colorTheme.sunShadowColor;
 export const selectForegroundColor = (state: RootState) =>
   state.background.zone.colorTheme.foregroundColor;
 export const selectBackAssetType = (state: RootState) =>
