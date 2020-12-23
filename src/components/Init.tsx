@@ -9,7 +9,7 @@ const Init = () => {
 
   Storage.get({ key: "stage" }).then((result: any) => {
     let ret: { value: any } = result;
-    if (!ret.value) dispatch(setCompletedStages(ret.value));
+    if (ret.value) dispatch(setCompletedStages(ret.value));
   });
 
   return null;
