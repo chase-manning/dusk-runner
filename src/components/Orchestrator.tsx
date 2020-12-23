@@ -110,10 +110,6 @@ const Orchestrator = () => {
     dispatch(setGameState(GameState.DEAD));
   };
 
-  const zoneChanger = () => {
-    if (movementRef.current < -1000) dispatch(setZone(zones[1]));
-  };
-
   const addBackAssetLocal = (left: number): BackAssetType => {
     const heightMultiplier = Math.random() + 0.5;
     const backAsset = {
@@ -154,7 +150,6 @@ const Orchestrator = () => {
 
   const environment = () => {
     addObstacles();
-    zoneChanger();
     addBackAssets();
     setTimeout(() => environment(), 1000 / 10);
   };
