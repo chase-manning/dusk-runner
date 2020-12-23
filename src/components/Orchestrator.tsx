@@ -146,7 +146,7 @@ const Orchestrator = () => {
   };
 
   const checkComplete = () => {
-    if (movementRef.current < -1000) {
+    if (movementRef.current < -10000) {
       dispatch(complete());
       dispatch(setSpeed(0));
     }
