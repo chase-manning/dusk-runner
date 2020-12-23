@@ -1,7 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import styled from "styled-components";
-import { GameState, selectGameState } from "../store/gameSlice";
 import Background from "./Background";
 import BackgroundAssets from "./BackgroundAssets";
 import EventHandler from "./EventHandler";
@@ -21,10 +19,6 @@ const StyledGame = styled.div`
 `;
 
 const Game = () => {
-  const gameState = useSelector(selectGameState);
-
-  if (gameState === GameState.MENU) return null;
-
   return (
     <StyledGame>
       <Background />
