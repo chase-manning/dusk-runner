@@ -1,11 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import styled from "styled-components";
-import { selectForegroundColor } from "../store/backgroundSlice";
-
-type StyledFloorProps = {
-  color: string;
-};
 
 const StyledFloor = styled.div`
   position: absolute;
@@ -13,11 +7,10 @@ const StyledFloor = styled.div`
   left: 0;
   width: 100%;
   height: 5%;
-  background-color: ${(props: StyledFloorProps) => props.color};
+  background-color: var(--foregroundColor);
 `;
 
 const Floor = () => {
-  const color = useSelector(selectForegroundColor);
-  return <StyledFloor color={color} />;
+  return <StyledFloor />;
 };
 export default Floor;
