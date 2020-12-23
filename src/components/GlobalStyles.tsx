@@ -1,27 +1,27 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { createGlobalStyle } from "styled-components";
-import { Zone } from "../config/zones";
-import { selectZone } from "../store/backgroundSlice";
+import { ColorTheme } from "../config/zones";
+import { selectColorTheme } from "../store/backgroundSlice";
 
 type Props = {
-  zone: Zone;
+  colorTheme: ColorTheme;
 };
-
-type ColorTheme = {};
 
 const GlobalStyle = createGlobalStyle`
   :root {
-    --backgroundTopColor: ${(props: Props) => props.zone.backgroundTopColor};
+    --backgroundTopColor: ${(props: Props) =>
+      props.colorTheme.backgroundTopColor};
     --backgroundBottomColor: ${(props: Props) =>
-      props.zone.backgroundBottomColor};
-    --sunHighlightColor: ${(props: Props) => props.zone.sunHighlightColor};
-    --sunShadowColor: ${(props: Props) => props.zone.sunShadowColor};
-    --foregroundColor: ${(props: Props) => props.zone.foregroundColor};
-    --backAssetType: ${(props: Props) => props.zone.backAssetType};
-    --backAssetTopColor: ${(props: Props) => props.zone.backAssetTopColor};
+      props.colorTheme.backgroundBottomColor};
+    --sunHighlightColor: ${(props: Props) =>
+      props.colorTheme.sunHighlightColor};
+    --sunShadowColor: ${(props: Props) => props.colorTheme.sunShadowColor};
+    --foregroundColor: ${(props: Props) => props.colorTheme.foregroundColor};
+    --backAssetTopColor: ${(props: Props) =>
+      props.colorTheme.backAssetTopColor};
     --backAssetBottomColor: ${(props: Props) =>
-      props.zone.backAssetBottomColor};
+      props.colorTheme.backAssetBottomColor};
   }
 
   * {
@@ -38,8 +38,8 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const GlobalStyles = () => {
-  const zone = useSelector(selectZone);
-  return <GlobalStyle zone={zone} />;
+  const colorTheme = useSelector(selectColorTheme);
+  return <GlobalStyle colorTheme={colorTheme} />;
 };
 
 export default GlobalStyles;

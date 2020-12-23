@@ -45,20 +45,22 @@ export const selectMovement = (state: RootState) => state.background.movement;
 export const selectBackAssets = (state: RootState) =>
   state.background.backAssets;
 export const selectZone = (state: RootState) => state.background.zone;
+export const selectColorTheme = (state: RootState) =>
+  state.background.zone.colorTheme;
 export const selectBackgroundBottomColor = (state: RootState) =>
-  state.background.zone.backgroundBottomColor;
+  state.background.zone.colorTheme.backgroundBottomColor;
 export const selectSunHighlightColor = (state: RootState) =>
-  state.background.zone.sunHighlightColor;
+  state.background.zone.colorTheme.sunHighlightColor;
 export const selectSunShadowColor = (state: RootState) =>
-  state.background.zone.sunShadowColor;
+  state.background.zone.colorTheme.sunShadowColor;
 export const selectForegroundColor = (state: RootState) =>
-  state.background.zone.foregroundColor;
+  state.background.zone.colorTheme.foregroundColor;
 export const selectBackAssetType = (state: RootState) =>
   state.background.zone.backAssetType;
 export const selectBackAssetTopColor = (state: RootState) =>
-  state.background.zone.backAssetTopColor;
+  state.background.zone.colorTheme.backAssetTopColor;
 export const selectBackAssetBottomColor = (state: RootState) =>
-  state.background.zone.backAssetBottomColor;
+  state.background.zone.colorTheme.backAssetBottomColor;
 export const selectSmallStars = (state: RootState) =>
   state.background.zone.smallStars;
 export const selectLargeStars = (state: RootState) =>

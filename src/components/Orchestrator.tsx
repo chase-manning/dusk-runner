@@ -114,8 +114,8 @@ const Orchestrator = () => {
     const heightMultiplier = Math.random() + 0.5;
     const backAsset = {
       backAssetType: zoneRef.current.backAssetType,
-      topColor: zoneRef.current.backAssetTopColor,
-      bottomColor: zoneRef.current.backAssetBottomColor,
+      topColor: zoneRef.current.colorTheme.backAssetTopColor,
+      bottomColor: zoneRef.current.colorTheme.backAssetBottomColor,
       left: left,
       height: (window.innerHeight / 3) * heightMultiplier,
       movementMultiplier: (2 - heightMultiplier) / 30,
