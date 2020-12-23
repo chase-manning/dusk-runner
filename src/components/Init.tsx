@@ -1,4 +1,3 @@
-import React from "react";
 import { Plugins as CapacitorPlugins } from "@capacitor/core";
 import { useDispatch } from "react-redux";
 import { setCompletedStages } from "../store/gameSlice";
