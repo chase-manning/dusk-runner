@@ -1,11 +1,14 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { createGlobalStyle } from "styled-components";
-import { selectZone, Zone } from "../store/backgroundSlice";
+import { Zone } from "../config/zones";
+import { selectZone } from "../store/backgroundSlice";
 
 type Props = {
   zone: Zone;
 };
+
+type ColorTheme = {};
 
 const GlobalStyle = createGlobalStyle`
   :root {

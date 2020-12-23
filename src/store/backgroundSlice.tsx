@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import zones, { BackAsset } from "../config/zones";
+import zones, { BackAsset, Zone } from "../config/zones";
 import { RootState } from "./store";
 
 export type BackAssetType = {
@@ -9,22 +9,6 @@ export type BackAssetType = {
   height: number;
   left: number;
   movementMultiplier: number;
-};
-
-export type Zone = {
-  backgroundTopColor: string;
-  backgroundBottomColor: string;
-  sunHighlightColor: string;
-  sunShadowColor: string;
-  foregroundColor: string;
-  backAssetType: BackAsset;
-  backAssetTopColor: string;
-  backAssetBottomColor: string;
-  smallStars: number;
-  largeStars: number;
-  sunDiameterMultiplier: number;
-  sunSizeMultiplier: number;
-  sunOpacityMultiplier: number;
 };
 
 interface backgroundState {

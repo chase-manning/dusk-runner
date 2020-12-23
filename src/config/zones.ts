@@ -1,9 +1,23 @@
-import { Zone } from "../store/backgroundSlice";
-
 export enum BackAsset {
   MOUNTAIN,
   CLOUD,
 }
+
+export type Zone = {
+  backgroundTopColor: string;
+  backgroundBottomColor: string;
+  sunHighlightColor: string;
+  sunShadowColor: string;
+  foregroundColor: string;
+  backAssetType: BackAsset;
+  backAssetTopColor: string;
+  backAssetBottomColor: string;
+  smallStars: number;
+  largeStars: number;
+  sunDiameterMultiplier: number;
+  sunSizeMultiplier: number;
+  sunOpacityMultiplier: number;
+};
 
 const zones: Zone[] = [
   {
