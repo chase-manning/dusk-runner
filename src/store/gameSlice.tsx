@@ -8,10 +8,12 @@ export enum GameState {
 
 interface gameState {
   gameState: GameState;
+  completedStages: number;
 }
 
 const initialState: gameState = {
   gameState: GameState.PLAYING,
+  completedStages: 0,
 };
 
 export const gameSlice = createSlice({
@@ -21,11 +23,16 @@ export const gameSlice = createSlice({
     setGameState: (state, action: PayloadAction<GameState>) => {
       state.gameState = action.payload;
     },
+    setCompletedStages: (state, action: PayloadAction<number>) => {
+      state.completedStages = action.payload;
+    },
   },
 });
 
-export const { setGameState } = gameSlice.actions;
+export const { setGameState, setCompletedStages } = gameSlice.actions;
 
 export const selectGameState = (state: RootState) => state.game.gameState;
+export const selectCompletedStages = (state: RootState) =>
+  state.game.completedStages;
 
 export default gameSlice.reducer;
