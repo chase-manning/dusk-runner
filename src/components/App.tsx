@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Game from "./Game";
+import Menu from "./Menu";
 
 const StyledApp = styled.div`
   position: fixed;
@@ -13,6 +14,7 @@ const StyledApp = styled.div`
 const App = () => {
   return (
     <StyledApp>
+      <Menu />
       <Game />
     </StyledApp>
   );
