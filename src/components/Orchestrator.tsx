@@ -18,6 +18,7 @@ import {
   PlayerState,
   run,
   die,
+  complete,
   selectHeight,
   selectSpeed,
   selectState,
@@ -82,6 +83,8 @@ const Orchestrator = () => {
   };
 
   const addObstacles = () => {
+    if (stateRef.current === PlayerState.COMPLETE) return;
+
     const MINIMUM_GAP = 150;
     const MAXIMUM_GAP = 500;
     if (obstaclesRef.current.length === 0) {
@@ -142,6 +145,13 @@ const Orchestrator = () => {
     }
   };
 
+  const checkComplete = () => {
+    if (movementRef.current < -1000) {
+      dispatch(complete());
+      dispatch(setSpeed(0));
+    }
+  };
+
   const tick = () => {
     processJump();
     processBackgroundMovement();
@@ -150,6 +160,7 @@ const Orchestrator = () => {
   };
 
   const environment = () => {
+    checkComplete();
     addObstacles();
     addBackAssets();
     setTimeout(() => environment(), 1000 / 10);
