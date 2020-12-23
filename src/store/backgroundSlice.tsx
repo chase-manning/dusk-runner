@@ -51,10 +51,6 @@ export const selectForegroundColor = (state: RootState) =>
   state.background.zone.colorTheme.foregroundColor;
 export const selectBackAssetType = (state: RootState) =>
   state.background.zone.backAssetType;
-export const selectBackAssetTopColor = (state: RootState) =>
-  state.background.zone.colorTheme.backAssetTopColor;
-export const selectBackAssetBottomColor = (state: RootState) =>
-  state.background.zone.colorTheme.backAssetBottomColor;
 export const selectSmallStars = (state: RootState) =>
   state.background.zone.smallStars;
 export const selectLargeStars = (state: RootState) =>
