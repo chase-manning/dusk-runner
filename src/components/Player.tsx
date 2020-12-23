@@ -1,12 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
-import { selectForegroundColor } from "../store/backgroundSlice";
 import { selectHeight } from "../store/playerSlice";
-
-type StyledPlayerProps = {
-  color: string;
-};
 
 const StyledPlayer = styled.div`
   position: absolute;
@@ -14,13 +9,11 @@ const StyledPlayer = styled.div`
   left: 25%;
   width: 20px;
   height: 40px;
-  background-color: ${(props: StyledPlayerProps) => props.color};
+  background-color: var(--foregroundColor);
 `;
 
 const Player = () => {
   const height = useSelector(selectHeight);
-  const foregroundColor = useSelector(selectForegroundColor);
-
   return (
     <div
       style={{
@@ -30,7 +23,7 @@ const Player = () => {
         transform: `translateY(${-height}px)`,
       }}
     >
-      <StyledPlayer color={foregroundColor}></StyledPlayer>
+      <StyledPlayer></StyledPlayer>
     </div>
   );
 };
