@@ -17,6 +17,7 @@ export type ColorTheme = {
 };
 
 export type Zone = {
+  stage: number;
   colorTheme: ColorTheme;
   backAssetType: BackAsset;
   smallStars: number;
@@ -29,6 +30,7 @@ export type Zone = {
 
 const zones: Zone[] = [
   {
+    stage: 1,
     colorTheme: {
       backgroundTopColor: "#145377",
       backgroundBottomColor: "#90E8E4",
@@ -47,6 +49,7 @@ const zones: Zone[] = [
     asset: zone01,
   },
   {
+    stage: 2,
     colorTheme: {
       backgroundTopColor: "#95CDD4",
       backgroundBottomColor: "#EF0163",
