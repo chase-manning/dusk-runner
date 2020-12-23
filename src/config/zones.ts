@@ -26,6 +26,7 @@ export type Zone = {
   sunSizeMultiplier: number;
   sunOpacityMultiplier: number;
   asset: string;
+  speed: number;
 };
 
 const zones: Zone[] = [
@@ -47,6 +48,7 @@ const zones: Zone[] = [
     sunSizeMultiplier: 1.4,
     sunOpacityMultiplier: 0.6,
     asset: zone01,
+    speed: 4,
   },
   {
     stage: 2,
@@ -66,6 +68,7 @@ const zones: Zone[] = [
     sunSizeMultiplier: 1.3,
     sunOpacityMultiplier: 0.4,
     asset: zone02,
+    speed: 6,
   },
 ];
 

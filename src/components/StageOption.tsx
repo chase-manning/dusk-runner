@@ -60,7 +60,7 @@ const StageOption = (props: Props) => {
         dispatch(resetBackground());
         dispatch(setGameState(GameState.PLAYING));
         dispatch(run());
-        dispatch(setSpeed(4));
+        dispatch(setSpeed(props.zone.speed));
       }}
     >
       <ZoneImage src={props.zone.asset} />
