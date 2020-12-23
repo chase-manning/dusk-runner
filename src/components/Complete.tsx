@@ -25,20 +25,19 @@ type Props = {
 };
 
 const Header = styled.div`
-  font-size: 5rem;
+  font-size: 4rem;
   text-align: center;
   color: var(--foregroundColor);
-  margin-bottom: 20px;
   opacity: ${(props: Props) => (props.complete ? "1" : "0")};
-  transition: 2s opacity 2s;
+  transition: opacity 2s;
 `;
 
 const SubHeader = styled.div`
-  font-size: 2rem;
+  font-size: 1.25rem;
   text-align: center;
   color: var(--foregroundColor);
   opacity: ${(props: Props) => (props.complete ? "1" : "0")};
-  transition: 4s opacity 2s;
+  transition: 3s opacity 2s;
 `;
 
 const Complete = () => {
