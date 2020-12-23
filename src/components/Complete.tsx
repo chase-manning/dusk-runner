@@ -2,7 +2,6 @@ import React from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { PlayerState, selectState } from "../store/playerSlice";
-import Player from "./Player";
 
 const StyledComplete = styled.div`
   position: fixed;
