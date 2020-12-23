@@ -1,9 +1,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import { setMovement } from "../store/backgroundSlice";
-import { GameState, selectGameState, setGameState } from "../store/gameSlice";
-import { jump, PlayerState, selectState, setSpeed } from "../store/playerSlice";
+import { GameState, setGameState } from "../store/gameSlice";
+import { jump, PlayerState, selectState } from "../store/playerSlice";
 
 const StyledEventHandler = styled.div`
   position: fixed;
@@ -16,17 +15,12 @@ const StyledEventHandler = styled.div`
 const EventHandler = () => {
   const dispatch = useDispatch();
   const state = useSelector(selectState);
-  const gameState = useSelector(selectGameState);
 
   return (
     <StyledEventHandler
       onClick={() => {
-        if (state !== PlayerState.JUMPING) dispatch(jump());
-        if (gameState === GameState.DEAD) {
-          dispatch(setGameState(GameState.RUNNING));
-          dispatch(setSpeed(4));
-          dispatch(setMovement(0));
-        }
+        if (state === PlayerState.DEAD) dispatch(setGameState(GameState.MENU));
+        else if (state === PlayerState.RUNNING) dispatch(jump());
       }}
     ></StyledEventHandler>
   );

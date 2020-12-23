@@ -17,6 +17,7 @@ import { GameState, setGameState } from "../store/gameSlice";
 import {
   PlayerState,
   run,
+  die,
   selectHeight,
   selectSpeed,
   selectState,
@@ -107,7 +108,7 @@ const Orchestrator = () => {
 
   const endGame = () => {
     dispatch(setSpeed(0));
-    dispatch(setGameState(GameState.DEAD));
+    dispatch(die());
   };
 
   const addBackAssetLocal = (left: number): BackAssetType => {

@@ -4,6 +4,7 @@ import { RootState } from "./store";
 export enum PlayerState {
   RUNNING,
   JUMPING,
+  DEAD,
 }
 
 interface playerState {
@@ -28,6 +29,9 @@ export const playerSlice = createSlice({
     run: (state) => {
       state.state = PlayerState.RUNNING;
     },
+    die: (state) => {
+      state.state = PlayerState.DEAD;
+    },
     setHeight: (state, action: PayloadAction<number>) => {
       state.height = Math.round(action.payload);
     },
@@ -37,7 +41,7 @@ export const playerSlice = createSlice({
   },
 });
 
-export const { jump, run, setHeight, setSpeed } = playerSlice.actions;
+export const { jump, run, die, setHeight, setSpeed } = playerSlice.actions;
 
 export const selectState = (state: RootState) => state.player.state;
 export const selectHeight = (state: RootState) => state.player.height;

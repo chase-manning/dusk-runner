@@ -2,8 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "./store";
 
 export enum GameState {
-  RUNNING,
-  DEAD,
+  PLAYING,
   MENU,
 }
 
@@ -12,7 +11,7 @@ interface gameState {
 }
 
 const initialState: gameState = {
-  gameState: GameState.RUNNING,
+  gameState: GameState.PLAYING,
 };
 
 export const gameSlice = createSlice({
