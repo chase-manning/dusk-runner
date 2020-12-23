@@ -4,32 +4,12 @@ import App from "./components/App";
 import { store } from "./store/store";
 import { Provider } from "react-redux";
 import * as serviceWorker from "./serviceWorker";
-import { createGlobalStyle } from "styled-components";
-
-const GlobalStyle = createGlobalStyle`
-  :root {
-    --foreground: #16496E;
-    --test: red;
-    --test2: blue;
-  }
-
-  * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: monospace;
-      font-size: 12px;
-  }
-  button {
-    background: none; border: none;
-      outline: none;
-  }
-`;
+import GlobalStyles from "./components/GlobalStyles";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <GlobalStyle />
+      <GlobalStyles />
       <App />
     </Provider>
   </React.StrictMode>,
