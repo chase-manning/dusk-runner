@@ -1,7 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
+import { selectForegroundColor } from "../store/backgroundSlice";
 
 type StyledObstacleProps = {
+  color: string;
   left: number;
 };
 
@@ -11,7 +14,7 @@ const StyledObstacle = styled.div`
   bottom: 5%;
   width: 20px;
   height: 40px;
-  background-color: red;
+  background-color: ${(props: StyledObstacleProps) => props.color};
 `;
 
 export type ObstacleType = {
@@ -23,7 +26,10 @@ type Props = {
 };
 
 const Obstacle = (props: Props) => {
-  return <StyledObstacle left={props.obstacle.left}></StyledObstacle>;
+  const color = useSelector(selectForegroundColor);
+  return (
+    <StyledObstacle left={props.obstacle.left} color={color}></StyledObstacle>
+  );
 };
 
 export default Obstacle;
