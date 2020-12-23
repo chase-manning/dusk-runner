@@ -36,10 +36,19 @@ export const backgroundSlice = createSlice({
     addBackAsset: (state, action: PayloadAction<BackAssetType>) => {
       state.backAssets.push(action.payload);
     },
+    resetBackground: (state) => {
+      state.movement = 0;
+      state.backAssets = [];
+    },
   },
 });
 
-export const { setMovement, setZone, addBackAsset } = backgroundSlice.actions;
+export const {
+  setMovement,
+  setZone,
+  addBackAsset,
+  resetBackground,
+} = backgroundSlice.actions;
 
 export const selectMovement = (state: RootState) => state.background.movement;
 export const selectBackAssets = (state: RootState) =>

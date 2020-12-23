@@ -1,9 +1,12 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import { GameState, selectGameState } from "../store/gameSlice";
+import { GameState, selectGameState, setGameState } from "../store/gameSlice";
 import zone01 from "../assets/zone-01.png";
 import zone02 from "../assets/zone-02.png";
+import { resetBackground, setZone } from "../store/backgroundSlice";
+import zones from "../config/zones";
+import { run, setSpeed } from "../store/playerSlice";
 
 const StyledMenu = styled.div`
   position: fixed;
@@ -18,7 +21,6 @@ const StyledMenu = styled.div`
 
 const StageOption = styled.div`
   height: 70%;
-  background-color: green;
   width: 200px;
   overflow: hidden;
   border-radius: 30px;
@@ -40,16 +42,33 @@ const ZoneImage = styled.img`
 `;
 
 const Menu = () => {
+  const dispatch = useDispatch();
   const gameState = useSelector(selectGameState);
 
   if (gameState !== GameState.MENU) return null;
 
   return (
     <StyledMenu>
-      <StageOption>
+      <StageOption
+        onClick={() => {
+          dispatch(setZone(zones[0]));
+          dispatch(resetBackground());
+          dispatch(setGameState(GameState.PLAYING));
+          dispatch(run());
+          dispatch(setSpeed(4));
+        }}
+      >
         <ZoneImage src={zone01} />
       </StageOption>
-      <StageOption>
+      <StageOption
+        onClick={() => {
+          dispatch(setZone(zones[1]));
+          dispatch(resetBackground());
+          dispatch(setGameState(GameState.PLAYING));
+          dispatch(run());
+          dispatch(setSpeed(4));
+        }}
+      >
         <ZoneImage src={zone02} />
       </StageOption>
     </StyledMenu>
