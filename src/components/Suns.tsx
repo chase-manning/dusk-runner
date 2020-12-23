@@ -2,8 +2,6 @@ import React from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import {
-  selectSunHighlightColor,
-  selectSunShadowColor,
   selectSunDiameterMultiplier,
   selectSunOpacityMultiplier,
   selectSunSizeMultiplier,
@@ -19,9 +17,6 @@ const StyledSuns = styled.div`
 `;
 
 const Suns = () => {
-  const highlightColor = useSelector(selectSunHighlightColor);
-  const shadowColor = useSelector(selectSunShadowColor);
-
   const sunDiameterMultiplier = useSelector(selectSunDiameterMultiplier);
   const baseDiameter = window.innerHeight * sunDiameterMultiplier;
   const sizeMultiplier = useSelector(selectSunSizeMultiplier);
@@ -31,8 +26,6 @@ const Suns = () => {
 
   for (let index = 0; index < 7; index++) {
     suns.push({
-      highlight: highlightColor,
-      shadow: shadowColor,
       diameter: baseDiameter * Math.pow(sizeMultiplier, index),
       opacity: Math.pow(opacityMultiplier, index),
     });

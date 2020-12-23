@@ -9,17 +9,14 @@ const StyledSun = styled.div`
   width: ${(props: SunType) => props.diameter + "px"};
   height: ${(props: SunType) => props.diameter + "px"};
   border-radius: 50%;
-  background: ${(props: SunType) =>
-    "linear-gradient(" + props.highlight + ", " + props.shadow + ")"};
+  background: linear-gradient(var(--sunHighlightColor), var(--sunShadowColor));
   opacity: ${(props: SunType) => props.opacity};
   transition: all 10s;
 `;
 
 export type SunType = {
-  highlight: string;
-  shadow: string;
   diameter: number;
-  opacity: number;
+  opacity: number; //TODO can we move these to GLobal Styles
 };
 
 type Props = {
@@ -27,12 +24,7 @@ type Props = {
 };
 
 const Sun = (props: Props) => (
-  <StyledSun
-    highlight={props.sun.highlight}
-    shadow={props.sun.shadow}
-    diameter={props.sun.diameter}
-    opacity={props.sun.opacity}
-  />
+  <StyledSun diameter={props.sun.diameter} opacity={props.sun.opacity} />
 );
 
 export default Sun;
