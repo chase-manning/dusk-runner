@@ -13,7 +13,12 @@ import {
   BackAssetType,
 } from "../store/backgroundSlice";
 import { addObstacle, selectObstacles } from "../store/foregroundSlice";
-import { GameState, setGameState } from "../store/gameSlice";
+import {
+  GameState,
+  setGameState,
+  selectCompletedStages,
+  setCompletedStages,
+} from "../store/gameSlice";
 import {
   PlayerState,
   run,
@@ -32,6 +37,10 @@ const Orchestrator = () => {
   const startVelocity = 10;
 
   const dispatch = useDispatch();
+
+  const completedStages = useSelector(selectCompletedStages);
+  const completedStagesRef = useRef(completedStages);
+  completedStagesRef.current = completedStages;
 
   const backAssets = useSelector(selectBackAssets);
   const backAssetsRef = useRef(backAssets);
@@ -149,6 +158,8 @@ const Orchestrator = () => {
     if (movementRef.current < -10000) {
       dispatch(complete());
       dispatch(setSpeed(0));
+      if (zones.indexOf(zoneRef.current) >= completedStagesRef.current)
+        dispatch(setCompletedStages(completedStagesRef.current + 1));
     }
   };
 
